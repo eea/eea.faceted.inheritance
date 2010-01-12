@@ -57,6 +57,7 @@
             id uri" />
           <label tal:attributes="
             for uri;
+            title path;
             class string:state-${ancestor/review_state}">
             <span tal:content="structure python:' &raquo; '.join(breadcrumbs)" />
             <span tal:content="string:(${ancestor/review_state})" />
