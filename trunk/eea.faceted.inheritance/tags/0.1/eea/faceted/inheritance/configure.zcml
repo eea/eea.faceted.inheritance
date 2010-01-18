@@ -1,0 +1,11 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  i18n_domain="eea.faceted">
+
+  <include file="profiles.zcml" />
+  <include package=".subtypes" />
+  <include package=".browser" />
+  <include package=".criteria" />
+  <include package=".exportimport" />
+
+</configure>

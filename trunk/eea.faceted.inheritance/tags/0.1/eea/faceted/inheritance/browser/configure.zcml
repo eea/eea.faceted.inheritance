@@ -1,0 +1,41 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
+  i18n_domain="eea.faceted">
+
+  <adapter
+    for="eea.faceted.inheritance.interfaces.IFacetedHeritor"
+    provides="Products.CMFDynamicViewFTI.interfaces.IDynamicallyViewable"
+    factory=".displays.HeritorViews" />
+
+  <browser:page
+    for="..interfaces.IFacetedHeritor"
+    name="facetedheritor_view"
+    template="templates/view.pt"
+    class=".app.view.ViewForm"
+    permission="zope2.View"
+    />
+
+  <browser:page
+    for="..interfaces.IFacetedHeritor"
+    name="configure_faceted.html"
+    template="templates/edit.pt"
+    class=".app.edit.EditForm"
+    permission="cmf.ModifyPortalContent"
+    />
+
+  <browser:page
+    for="..interfaces.IFacetedHeritor"
+    name="faceted_configure"
+    class=".app.edit.EditForm"
+    attribute="update"
+    permission="cmf.ModifyPortalContent"
+    />
+
+  <browser:resource
+    name="eea.faceted.inheritance.edit.js"
+    file="./javascript/edit.js"
+   />
+
+</configure>
