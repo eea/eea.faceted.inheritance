@@ -47,10 +47,10 @@
       </li>
       <li tal:repeat="ancestor python:view.ancestors">
         <tal:item define="
-          path python:ancestor.getURL(1);
+          path python:ancestor.getPath();
           uri python:path.strip('/').replace('/', '-');
           breadcrumbs python:[b.get('Title') for b in view.breadcrumbs(ancestor)];
-          breadcrumbs python:breadcrumbs or [ancestor.Title or ancestor.getURL(1),]">
+          breadcrumbs python:breadcrumbs or [ancestor.Title or ancestor.getPath(),]">
           <input type="radio" name="ancestor" tal:attributes="
             value path;
             checked python:(current_ancestor == path) and 'checked' or None;
