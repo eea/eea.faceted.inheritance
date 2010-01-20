@@ -1,7 +1,11 @@
 Changelog
 =========
 
-0.1.1 (2010-01-18)
+0.2 (Unrelease)
+---------------
+
+
+0.1.1 (2010-01-19)
 ------------------
 
 * #2936 Fix relative path problems when using in production [voineali]
