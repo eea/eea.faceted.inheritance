@@ -1,0 +1,26 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+  xmlns:zcml="http://namespaces.zope.org/zcml"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  i18n_domain="eea.faceted">
+
+  <class class="Products.ATContentTypes.content.folder.ATFolder">
+    <implements interface="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor" />
+  </class>
+
+  <class class="Products.ATContentTypes.content.topic.ATTopic">
+    <implements interface="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor" />
+  </class>
+
+  <utility
+    name="eea.faceted.inheritance.FolderFacetedHeritor"
+    factory=".descriptors.FolderFacetedHeritorDescriptor" />
+
+  <utility
+    name="eea.faceted.inheritance.TopicFacetedHeritor"
+    factory=".descriptors.TopicFacetedHeritorDescriptor" />
+
+  <utility
+    name="eea.faceted.inheritance.RichTopicFacetedHeritor"
+    factory=".descriptors.RichTopicFacetedHeritorDescriptor" />
+
+</configure>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<import-steps>
+ <import-step id="eea.faceted.inheritance.various" version="20100112-01"
+              handler="eea.faceted.inheritance.setuphandlers.setupVarious"
+              title="EEA Faceted Inheritance setup">
+   <dependency step="catalog"/>
+    EEA Faceted Inheritance installation step.
+ </import-step>
+</import-steps>
