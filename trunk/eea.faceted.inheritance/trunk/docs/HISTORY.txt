@@ -3,6 +3,7 @@ Changelog
 
 0.2 (Unrelease)
 ---------------
+* #3337 Inherit faceted version from parent [voineali]
 
 
 0.1.1 (2010-01-19)

@@ -6,6 +6,7 @@
   <include package=".subtypes" />
   <include package=".browser" />
   <include package=".criteria" />
+  <include package=".versions" />
   <include package=".exportimport" />
 
 </configure>
