@@ -7,6 +7,10 @@
     <implements interface="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor" />
   </class>
 
+  <class class="Products.ATContentTypes.content.folder.ATBTreeFolder">
+    <implements interface="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor" />
+  </class>
+
   <class class="Products.ATContentTypes.content.topic.ATTopic">
     <implements interface="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor" />
   </class>
@@ -14,6 +18,10 @@
   <utility
     name="eea.faceted.inheritance.FolderFacetedHeritor"
     factory=".descriptors.FolderFacetedHeritorDescriptor" />
+
+  <utility
+    name="eea.faceted.inheritance.LargeFolderFacetedHeritor"
+    factory=".descriptors.LargeFolderFacetedHeritorDescriptor" />
 
   <utility
     name="eea.faceted.inheritance.TopicFacetedHeritor"
