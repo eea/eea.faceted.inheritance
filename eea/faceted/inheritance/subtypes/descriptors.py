@@ -15,6 +15,11 @@ class FolderFacetedHeritorDescriptor(FacetedHeritorDescriptor):
     """
     for_portal_type = 'Folder'
 
+class LargeFolderFacetedHeritorDescriptor(FacetedHeritorDescriptor):
+    """ Large Folder descriptor
+    """
+    for_portal_type = 'Large Plone Folder'
+
 class TopicFacetedHeritorDescriptor(FacetedHeritorDescriptor):
     """ Topic descriptor
     """

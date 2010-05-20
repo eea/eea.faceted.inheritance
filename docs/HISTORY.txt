@@ -3,6 +3,8 @@ Changelog
 
 0.2 (Unrelease)
 ---------------
+* #3059 Large Folder can be subtyped as Faceted Heritor in order to inherit
+  faceted configuration from another faceted navigable content [voineali]
 * #3337 Inherit faceted version from parent [voineali]
 
 
