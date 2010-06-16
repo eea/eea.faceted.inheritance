@@ -1,0 +1,20 @@
+Changelog
+=========
+
+0.2 (2010-06-16)
+----------------
+* #3059 Large Folder can be subtyped as Faceted Heritor in order to inherit
+  faceted configuration from another faceted navigable content [voineali]
+* #3337 Inherit faceted version from parent [voineali]
+
+
+0.1.1 (2010-01-19)
+------------------
+
+* #2936 Fix relative path problems when using in production [voineali]
+
+
+0.1 (2010-01-18)
+----------------
+
+* Initial release
