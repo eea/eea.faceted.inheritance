@@ -1,8 +1,8 @@
 Changelog
 =========
 
-0.3 (unreleased)
-----------------
+0.3-dev - (unreleased)
+----------------------
 
 0.2 (2010-06-16)
 ----------------
@@ -13,11 +13,9 @@ Changelog
 
 0.1.1 (2010-01-19)
 ------------------
-
 * #2936 Fix relative path problems when using in production [voineali]
 
 
 0.1 (2010-01-18)
 ----------------
-
 * Initial release
