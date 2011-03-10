@@ -3,6 +3,7 @@ Changelog
 
 0.3-dev - (unreleased)
 ----------------------
+ * Change: clean-up of pylint violations [ichimdav #4140]
 
 0.2 (2010-06-16)
 ----------------

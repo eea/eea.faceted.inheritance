@@ -1,8 +1,8 @@
 from zope.interface import implements
 from zope.component import queryAdapter
 
-from interfaces import ICriteria
-from interfaces import IHeritorAccessor
+from eea.faceted.inheritance.criteria.interfaces import ICriteria
+from eea.faceted.inheritance.criteria.interfaces import IHeritorAccessor
 
 from Products.CMFCore.utils import getToolByName
 

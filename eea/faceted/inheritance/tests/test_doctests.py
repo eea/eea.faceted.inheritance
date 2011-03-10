@@ -3,7 +3,8 @@
 import unittest
 from zope.testing import doctest
 from Testing.ZopeTestCase import FunctionalDocFileSuite as Suite
-from base import FacetedInheritanceFunctionalTestCase
+from eea.faceted.inheritance.tests.base import \
+        FacetedInheritanceFunctionalTestCase
 
 OPTIONFLAGS = (doctest.REPORT_ONLY_FIRST_FAILURE |
                doctest.ELLIPSIS |

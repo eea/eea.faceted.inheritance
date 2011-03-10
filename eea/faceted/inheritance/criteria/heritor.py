@@ -6,7 +6,7 @@ except ImportError:
 
 from zope.interface import implements
 from eea.faceted.inheritance.config import ANNO_ANCESTOR
-from interfaces import IHeritorAccessor
+from eea.faceted.inheritance.criteria.interfaces import IHeritorAccessor
 
 class HeritorAccessor(object):
     """ Criteria handler

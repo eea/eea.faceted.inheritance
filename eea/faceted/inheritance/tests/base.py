@@ -1,10 +1,10 @@
 """ Base test cases
 """
-import os
-from StringIO import StringIO
-from Globals import package_home
-from cgi import FieldStorage
-from ZPublisher.HTTPRequest import FileUpload
+#import os
+#from StringIO import StringIO
+#from Globals import package_home
+#from cgi import FieldStorage
+#from ZPublisher.HTTPRequest import FileUpload
 from Products.Five import zcml
 from Products.Five import fiveconfigure
 
