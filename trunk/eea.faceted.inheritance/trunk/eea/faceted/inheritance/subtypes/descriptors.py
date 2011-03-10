@@ -1,5 +1,5 @@
 from zope import interface
-from interfaces import IFacetedHeritor
+from eea.faceted.inheritance.subtypes.interfaces import IFacetedHeritor
 from p4a.subtyper.interfaces import IPortalTypedFolderishDescriptor
 
 class FacetedHeritorDescriptor(object):
