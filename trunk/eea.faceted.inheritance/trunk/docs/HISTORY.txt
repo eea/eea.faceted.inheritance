@@ -1,6 +1,9 @@
 Changelog
 =========
 
+0.4-dev - (unreleased)
+----------------------
+
 0.3 - (2011-04-19)
 ------------------
  * Change: clean-up of pylint violations [ichimdav #4140]
