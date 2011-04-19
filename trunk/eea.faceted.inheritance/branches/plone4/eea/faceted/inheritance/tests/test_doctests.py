@@ -1,10 +1,11 @@
 """ Doc tests
 """
 import unittest
-from zope.testing import doctest
-from Testing.ZopeTestCase import FunctionalDocFileSuite as Suite
-from eea.faceted.inheritance.tests.base import \
-        FacetedInheritanceFunctionalTestCase
+import doctest
+from Testing.ZopeTestCase import FunctionalDocFileSuite
+from eea.faceted.inheritance.tests.base import (
+    FacetedInheritanceFunctionalTestCase,
+)
 
 OPTIONFLAGS = (doctest.REPORT_ONLY_FIRST_FAILURE |
                doctest.ELLIPSIS |
@@ -14,15 +15,15 @@ def test_suite():
     """ Suite
     """
     return unittest.TestSuite((
-            Suite('README.txt',
+            FunctionalDocFileSuite('README.txt',
                   optionflags=OPTIONFLAGS,
                   package='eea.faceted.inheritance',
                   test_class=FacetedInheritanceFunctionalTestCase) ,
-            Suite('docs/browser.txt',
+            FunctionalDocFileSuite('docs/browser.txt',
                   optionflags=OPTIONFLAGS,
                   package='eea.faceted.inheritance',
                   test_class=FacetedInheritanceFunctionalTestCase),
-            Suite('docs/inheritance.txt',
+            FunctionalDocFileSuite('docs/inheritance.txt',
                   optionflags=OPTIONFLAGS,
                   package='eea.faceted.inheritance',
                   test_class=FacetedInheritanceFunctionalTestCase),

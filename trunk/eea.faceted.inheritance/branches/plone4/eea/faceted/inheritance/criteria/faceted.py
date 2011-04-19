@@ -1,3 +1,5 @@
+""" Faceted criteria
+"""
 from zope.interface import implements
 from zope.component import queryAdapter
 
@@ -12,6 +14,8 @@ class Criteria(object):
     implements(ICriteria)
 
     def _ancestor(self, context):
+        """ Get ancestor
+        """
         handler = queryAdapter(context, IHeritorAccessor)
         path = handler.ancestor
         ctool = getToolByName(context, 'portal_catalog')
@@ -29,31 +33,43 @@ class Criteria(object):
     #
     @property
     def criteria(self):
+        """ Get faceted criteria from ancestor
+        """
         if not self.ancestor:
             return []
         return self.ancestor.criteria
 
     def newid(self):
+        """ Faceted criterion new id
+        """
         if not self.adapter:
             return ''
         return self.adapter.newid()
 
     def get(self, key, default=None):
+        """ Get faceted criterion by id from ancestor
+        """
         if not self.adapter:
             return default
         return self.adapter.get(key, default)
 
     def keys(self):
+        """ Faceted criteria keys from ancestor
+        """
         if not self.adapter:
             return []
         return self.adapter.keys()
 
     def values(self):
+        """ Faceted criteria values from ancestor
+        """
         if not self.adapter:
             return []
         return self.adapter.values()
 
     def items(self):
+        """ Faceted criteria items from ancestor
+        """
         if not self.adapter:
             return []
         return self.adapter.items()
@@ -107,6 +123,8 @@ class Criteria(object):
     # Utils
     #
     def widget(self, wid=None, cid=None):
+        """ Faceted widget from ancestor
+        """
         if not self.adapter:
             raise KeyError(cid)
         return self.adapter.widget(wid, cid)

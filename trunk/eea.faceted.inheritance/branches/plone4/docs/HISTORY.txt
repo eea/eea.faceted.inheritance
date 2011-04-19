@@ -3,6 +3,7 @@ Changelog
 
 4.0-dev - (unreleased)
 ----------------------
+ * Clenup: Fixed all pylint, pyflakes violations [voineali #4229]
  * Feature: Plone 4 compatible [voineali #4229]
    This version is not backward compatible.
 

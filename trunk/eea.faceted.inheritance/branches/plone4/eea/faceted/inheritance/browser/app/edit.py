@@ -1,3 +1,5 @@
+""" Browser edit controllers
+"""
 import logging
 from zope.component import queryAdapter, getMultiAdapter
 
@@ -23,11 +25,14 @@ class EditForm(BrowserView):
             return msg
 
         if msg:
-            IStatusMessage(self.request).addStatusMessage(str(msg), type='info')
+            IStatusMessage(self.request).addStatusMessage(
+                str(msg), type='info')
         self.request.response.redirect(to)
         return msg
 
     def update(self, **kwargs):
+        """ Update
+        """
         if getattr(self.request, 'form', None):
             kwargs.update(self.request.form)
 
@@ -45,7 +50,8 @@ class EditForm(BrowserView):
         """ Return breadcrumbs for ancestor
         """
         ancestor = brain.getObject()
-        view = getMultiAdapter((ancestor, self.request), name=u'breadcrumbs_view')
+        view = getMultiAdapter((ancestor, self.request),
+                               name=u'breadcrumbs_view')
         return view.breadcrumbs()
 
     @property
@@ -54,7 +60,9 @@ class EditForm(BrowserView):
         """
         ctool = getToolByName(self.context, 'portal_catalog')
 
-        brains = ctool(object_provides='eea.facetednavigation.subtypes.interfaces.IFacetedNavigable')
+        brains = ctool(
+            object_provides=('eea.facetednavigation'
+                             '.subtypes.interfaces.IFacetedNavigable'))
         for brain in brains:
             if IFacetedHeritor.providedBy(brain.getObject()):
                 continue
