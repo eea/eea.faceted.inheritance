@@ -1,7 +1,7 @@
 <configure xmlns="http://namespaces.zope.org/zope"
   xmlns:zcml="http://namespaces.zope.org/zcml"
   xmlns:browser="http://namespaces.zope.org/browser"
-  i18n_domain="eea.faceted">
+  i18n_domain="eea">
 
   <class class="Products.ATContentTypes.content.folder.ATFolder">
     <implements interface="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor" />
@@ -15,20 +15,20 @@
     <implements interface="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor" />
   </class>
 
-  <utility
-    name="eea.faceted.inheritance.FolderFacetedHeritor"
-    factory=".descriptors.FolderFacetedHeritorDescriptor" />
+  <browser:page
+    name="facetedheritor_subtyper_public"
+    for="zope.interface.Interface"
+    class=".subtyper.FacetedHeritorPublicSubtyper"
+    permission="zope.Public"
+    allowed_interface=".interfaces.IFacetedHeritorSubtyper"
+    />
 
-  <utility
-    name="eea.faceted.inheritance.LargeFolderFacetedHeritor"
-    factory=".descriptors.LargeFolderFacetedHeritorDescriptor" />
-
-  <utility
-    name="eea.faceted.inheritance.TopicFacetedHeritor"
-    factory=".descriptors.TopicFacetedHeritorDescriptor" />
-
-  <utility
-    name="eea.faceted.inheritance.RichTopicFacetedHeritor"
-    factory=".descriptors.RichTopicFacetedHeritorDescriptor" />
+  <browser:page
+    name="facetedheritor_subtyper"
+    for="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor"
+    class=".subtyper.FacetedHeritorSubtyper"
+    permission="cmf.ModifyPortalContent"
+    allowed_interface=".interfaces.IFacetedHeritorSubtyper"
+    />
 
 </configure>

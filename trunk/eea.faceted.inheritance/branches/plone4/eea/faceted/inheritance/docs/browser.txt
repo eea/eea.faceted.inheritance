@@ -6,24 +6,27 @@ Set up
 
   Imports
 
-    >>> from p4a.subtyper.interfaces import ISubtyper
-    >>> from zope.component import getUtility
-    >>> subtyper = getUtility(ISubtyper)
-
+    >>> from zope.component import getMultiAdapter
     >>> self.loginAsPortalOwner()
 
   Add ancestor
 
     >>> fid = portal.invokeFactory('Folder', 'ancestor')
     >>> ancestor = portal._getOb(fid)
-    >>> subtyper.change_type(ancestor, 'eea.facetednavigation.FolderFacetedNavigable')
+    >>> request = ancestor.REQUEST
+    >>> subtyper = getMultiAdapter((ancestor, request), name=u'faceted_subtyper')
+    >>> subtyper.enable()
     >>> ancestor.reindexObject()
 
   Add heritor
 
     >>> fid = portal.invokeFactory('Folder', 'heritor')
     >>> heritor = portal._getOb(fid)
-    >>> subtyper.change_type(heritor, 'eea.faceted.inheritance.FolderFacetedHeritor')
+    >>> hertyper = getMultiAdapter((heritor, heritor.REQUEST), name=u'facetedheritor_subtyper')
+    >>> hertyper.can_enable_heritor
+    True
+
+    >>> hertyper.enable()
     >>> heritor.reindexObject()
 
   Login

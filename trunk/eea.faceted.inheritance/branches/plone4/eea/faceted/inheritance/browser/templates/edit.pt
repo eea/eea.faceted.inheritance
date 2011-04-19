@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
   lang="en-US"
   metal:use-macro="here/main_template/macros/master"
-  i18n:domain="eea.faceted">
+  i18n:domain="eea">
 
 <metal:jsslot fill-slot="javascript_head_slot">
   <script type="text/javascript" tal:attributes="
@@ -14,18 +14,8 @@
 
 <body>
 
-<div metal:fill-slot="main"
+<div metal:fill-slot="content-core"
   tal:define="current_ancestor python:view.ancestor">
-
-  <h1 tal:content="object_title" class="documentFirstHeading">
-    Title or id
-  </h1>
-
-  <div metal:use-macro="here/document_actions/macros/document_actions">
-    Document actions (print, sendto etc)
-  </div>
-
-  <div class="visualClear"></div>
 
 <form action="@@faceted_configure">
 

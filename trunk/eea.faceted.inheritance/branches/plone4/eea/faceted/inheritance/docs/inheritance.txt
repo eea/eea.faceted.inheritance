@@ -8,9 +8,7 @@ for multiple heritors.
 Imports
 -------
 
-    >>> from p4a.subtyper.interfaces import ISubtyper
-    >>> from zope.component import getUtility
-    >>> from zope.component import queryMultiAdapter
+    >>> from zope.component import queryMultiAdapter, getMultiAdapter
     >>> from eea.facetednavigation.interfaces import ICriteria
     >>> from eea.faceted.inheritance.interfaces import IHeritorAccessor
 
@@ -24,8 +22,9 @@ Create a faceted navigable folder
 
     >>> fid = portal.invokeFactory('Folder', 'ancestor')
     >>> ancestor = portal._getOb(fid)
-    >>> subtyper = getUtility(ISubtyper)
-    >>> subtyper.change_type(ancestor, 'eea.facetednavigation.FolderFacetedNavigable')
+    >>> request = ancestor.REQUEST
+    >>> subtyper = getMultiAdapter((ancestor, request), name=u'faceted_subtyper')
+    >>> subtyper.enable()
 
   Cleanup default widgets
 
@@ -44,11 +43,15 @@ Create a faceted heritor folder
 
     >>> fid = portal.invokeFactory('Folder', 'heritor')
     >>> heritor = portal._getOb(fid)
-    >>> subtyper.change_type(heritor, 'eea.faceted.inheritance.FolderFacetedHeritor')
+    >>> request = heritor.REQUEST
+    >>> hertyper = getMultiAdapter((heritor, request), name=u'facetedheritor_subtyper')
+    >>> hertyper.can_enable_heritor
+    True
+
+    >>> hertyper.enable()
 
   Connect heritor with ancestor
 
-    >>> request = heritor.REQUEST
     >>> IHeritorAccessor(heritor).ancestor = '/plone/ancestor'
     >>> IHeritorAccessor(heritor).ancestor
     '/plone/ancestor'
