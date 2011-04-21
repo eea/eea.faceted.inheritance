@@ -4,19 +4,6 @@
   xmlns:zcml="http://namespaces.zope.org/zcml"
   i18n_domain="eea">
 
-  <adapter
-    for="eea.faceted.inheritance.interfaces.IFacetedHeritor"
-    provides="Products.CMFDynamicViewFTI.interfaces.IDynamicallyViewable"
-    factory=".displays.HeritorViews" />
-
-  <browser:page
-    for="..interfaces.IFacetedHeritor"
-    name="facetedheritor_view"
-    template="templates/view.pt"
-    class=".app.view.ViewForm"
-    permission="zope2.View"
-    />
-
   <browser:page
     for="..interfaces.IFacetedHeritor"
     name="configure_faceted.html"

@@ -1,10 +1,12 @@
 """ Faceted criteria
 """
 from zope.interface import implements
-from zope.component import queryAdapter
+from zope.component import queryAdapter, getUtility
 
 from eea.faceted.inheritance.criteria.interfaces import ICriteria
 from eea.faceted.inheritance.criteria.interfaces import IHeritorAccessor
+from eea.facetednavigation.widgets.storage import Criterion
+from eea.facetednavigation.interfaces import IWidgetsInfo
 
 from Products.CMFCore.utils import getToolByName
 
@@ -36,8 +38,11 @@ class Criteria(object):
         """ Get faceted criteria from ancestor
         """
         if not self.ancestor:
-            return []
-        return self.ancestor.criteria
+            return [
+                Criterion(widget='path', index='path',
+                          hidden=True, default=self.context.absolute_url(1)),
+            ]
+        return ICriteria(self.ancestor).criteria
 
     def newid(self):
         """ Faceted criterion new id
@@ -49,30 +54,25 @@ class Criteria(object):
     def get(self, key, default=None):
         """ Get faceted criterion by id from ancestor
         """
-        if not self.adapter:
-            return default
-        return self.adapter.get(key, default)
+        for cid, cvalue in self.items():
+            if key == cid:
+                return cvalue
+        return default
 
     def keys(self):
         """ Faceted criteria keys from ancestor
         """
-        if not self.adapter:
-            return []
-        return self.adapter.keys()
+        return [criterion.getId() for criterion in self.criteria]
 
     def values(self):
         """ Faceted criteria values from ancestor
         """
-        if not self.adapter:
-            return []
-        return self.adapter.values()
+        return [criterion for criterion in self.criteria]
 
     def items(self):
         """ Faceted criteria items from ancestor
         """
-        if not self.adapter:
-            return []
-        return self.adapter.items()
+        return [(criterion.getId(), criterion) for criterion in self.criteria]
     #
     # Setters
     #
@@ -126,5 +126,5 @@ class Criteria(object):
         """ Faceted widget from ancestor
         """
         if not self.adapter:
-            raise KeyError(cid)
+            return getUtility(IWidgetsInfo).widgets.get('path', None)
         return self.adapter.widget(wid, cid)

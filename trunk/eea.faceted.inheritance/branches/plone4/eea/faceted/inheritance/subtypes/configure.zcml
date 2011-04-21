@@ -15,20 +15,4 @@
     <implements interface="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor" />
   </class>
 
-  <browser:page
-    name="facetedheritor_subtyper_public"
-    for="zope.interface.Interface"
-    class=".subtyper.FacetedHeritorPublicSubtyper"
-    permission="zope.Public"
-    allowed_interface=".interfaces.IFacetedHeritorSubtyper"
-    />
-
-  <browser:page
-    name="facetedheritor_subtyper"
-    for="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor"
-    class=".subtyper.FacetedHeritorSubtyper"
-    permission="cmf.ModifyPortalContent"
-    allowed_interface=".interfaces.IFacetedHeritorSubtyper"
-    />
-
 </configure>

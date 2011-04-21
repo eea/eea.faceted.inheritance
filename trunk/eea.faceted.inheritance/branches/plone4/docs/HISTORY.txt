@@ -3,6 +3,21 @@ Changelog
 
 4.0-dev - (unreleased)
 ----------------------
+
+Upgrade steps:
+
+ * Update your buildout.cfg zcml directives to look like:
+     zcml =
+       eea.faceted.inheritance-meta
+       eea.faceted.inheritance-overrides
+       eea.faceted.inheritance.subtypes
+       eea.faceted.inheritance
+
+     See sample buildout at: https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.faceted.inheritance/buildouts/plone4/
+ * Run provided upgrade steps, if any.
+
+Changes
+
  * Clenup: Fixed all pylint, pyflakes violations [voineali #4229]
  * Feature: Plone 4 compatible [voineali #4229]
    This version is not backward compatible.

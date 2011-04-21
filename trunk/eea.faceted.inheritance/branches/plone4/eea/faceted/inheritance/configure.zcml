@@ -5,7 +5,10 @@
   <include package="eea.facetednavigation" />
 
   <include file="profiles.zcml" />
-  <include package=".subtypes" />
+  <!-- You'll have to explicitly include eea.faceted.inheritance.subtypes ZCML in
+  your buildout.cfg in order to enable faceted inheritance for Plone default
+  content-types -->
+  <include package=".subtypes" file="subtyping.zcml" />
   <include package=".browser" />
   <include package=".criteria" />
   <include package=".versions" />

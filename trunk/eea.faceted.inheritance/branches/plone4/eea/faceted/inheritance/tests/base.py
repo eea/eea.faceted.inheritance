@@ -16,6 +16,7 @@ def setup_eea_faceted_inheritance():
 
     import eea.faceted.inheritance
     zcml.load_config('configure.zcml', eea.faceted.inheritance)
+    zcml.load_config('configure.zcml', eea.faceted.inheritance.subtypes)
     fiveconfigure.debug_mode = False
 
 setup_eea_faceted_inheritance()
