@@ -1,5 +1,8 @@
 Changelog
 =========
+[Alexandru Ghica - alec.ghica@eaudeweb.ro]
+[Alin Voinea - alin.voinea@eaudeweb.ro]
+[Antonio De Marinis - Antonio.DeMarinis@eea.europa.eu]
 
 4.0-dev - (unreleased)
 ----------------------
@@ -19,8 +22,7 @@ Upgrade steps:
 Changes
 
  * Cleanup: Fixed all pylint, pyflakes violations [voineali #4229]
- * Feature: Plone 4 compatible [voineali #4229]
-   This version is not backward compatible.
+ * Feature: Plone 4.0.4 compatible release [voineali #4229]
 
 0.3 - (2011-04-19)
 ------------------
