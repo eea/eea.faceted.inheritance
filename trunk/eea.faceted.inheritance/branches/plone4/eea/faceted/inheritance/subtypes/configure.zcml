@@ -1,18 +1,24 @@
-<configure xmlns="http://namespaces.zope.org/zope"
-  xmlns:zcml="http://namespaces.zope.org/zcml"
+<configure
+  xmlns="http://namespaces.zope.org/zope"
   xmlns:browser="http://namespaces.zope.org/browser"
   i18n_domain="eea">
 
-  <class class="Products.ATContentTypes.content.folder.ATFolder">
-    <implements interface="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor" />
-  </class>
+  <include package="eea.facetednavigation.subtypes" />
 
-  <class class="Products.ATContentTypes.content.folder.ATBTreeFolder">
-    <implements interface="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor" />
-  </class>
+  <browser:page
+    name="facetedheritor_subtyper_public"
+    for="zope.interface.Interface"
+    class=".subtyper.FacetedHeritorPublicSubtyper"
+    permission="zope.Public"
+    allowed_interface=".interfaces.IFacetedHeritorSubtyper"
+    />
 
-  <class class="Products.ATContentTypes.content.topic.ATTopic">
-    <implements interface="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor" />
-  </class>
+  <browser:page
+    name="facetedheritor_subtyper"
+    for="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor"
+    class=".subtyper.FacetedHeritorSubtyper"
+    permission="cmf.ModifyPortalContent"
+    allowed_interface=".interfaces.IFacetedHeritorSubtyper"
+    />
 
 </configure>

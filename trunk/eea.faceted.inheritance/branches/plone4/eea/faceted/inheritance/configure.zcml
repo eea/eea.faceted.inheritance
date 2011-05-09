@@ -2,17 +2,19 @@
   xmlns="http://namespaces.zope.org/zope"
   i18n_domain="eea">
 
-  <include package="eea.facetednavigation" />
+  <include file="minimal.zcml" />
 
-  <include file="profiles.zcml" />
-  <!-- You'll have to explicitly include eea.faceted.inheritance.subtypes ZCML in
-  your buildout.cfg in order to enable faceted inheritance for Plone default
-  content-types -->
-  <include package=".subtypes" file="subtyping.zcml" />
-  <include package=".browser" />
-  <include package=".criteria" />
-  <include package=".versions" />
-  <include package=".exportimport" />
-  <include package=".upgrades" />
+  <!-- Make default ATCT faceted heritable -->
+  <class class="Products.ATContentTypes.content.folder.ATFolder">
+    <implements interface="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor" />
+  </class>
+
+  <class class="Products.ATContentTypes.content.folder.ATBTreeFolder">
+    <implements interface="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor" />
+  </class>
+
+  <class class="Products.ATContentTypes.content.topic.ATTopic">
+    <implements interface="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor" />
+  </class>
 
 </configure>
