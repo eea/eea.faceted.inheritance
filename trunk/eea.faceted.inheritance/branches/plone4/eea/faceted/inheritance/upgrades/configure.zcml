@@ -9,7 +9,7 @@
     profile="eea.faceted.inheritance:default">
 
     <genericsetup:upgradeDepends
-      title="Upgrade profiles"
+      title="General upgrade steps"
       import_steps="actions"
       />
 
