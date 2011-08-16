@@ -6,6 +6,7 @@ Changelog
 
 4.0-dev - (unreleased)
 ----------------------
+ * Feature: HTML5 validation [ghicaale #4444]
  * Feature: Added a way to disable IPossibleFacetedHeritor for Plone default
    Content-Types [voineali #4229] - Thanks to thomasdesvenain
  * Cleanup: Fixed all pylint, pyflakes violations [voineali #4229]
