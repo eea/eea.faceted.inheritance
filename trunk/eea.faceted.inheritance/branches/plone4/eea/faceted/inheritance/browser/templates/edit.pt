@@ -6,9 +6,9 @@
 <metal:jsslot fill-slot="javascript_head_slot">
   <script type="text/javascript" tal:attributes="
     src string:$portal_url/++resource++eea.faceted.inheritance.edit.js"></script>
-  <script language="javascript" type="text/javascript"
+  <script type="text/javascript"
     tal:content="string:jQuery(document).ready(FacetedHeritor.Load);"></script>
-  <script language="javascript" type="text/javascript"
+  <script type="text/javascript"
     tal:content="string:jQuery(window).unload(FacetedHeritor.Unload);"></script>
 </metal:jsslot>
 
