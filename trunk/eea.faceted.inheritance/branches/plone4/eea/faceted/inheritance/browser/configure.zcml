@@ -9,7 +9,7 @@
     name="configure_faceted.html"
     template="templates/edit.pt"
     class=".app.edit.EditForm"
-    permission="cmf.ModifyPortalContent"
+    permission="eea.faceted.configure"
     />
 
   <browser:page
@@ -17,7 +17,7 @@
     name="faceted_configure"
     class=".app.edit.EditForm"
     attribute="update"
-    permission="cmf.ModifyPortalContent"
+    permission="eea.faceted.configure"
     />
 
   <browser:resource

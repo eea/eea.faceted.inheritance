@@ -17,7 +17,7 @@
     name="facetedheritor_subtyper"
     for="eea.faceted.inheritance.interfaces.IPossibleFacetedHeritor"
     class=".subtyper.FacetedHeritorSubtyper"
-    permission="cmf.ModifyPortalContent"
+    permission="eea.faceted.configure"
     allowed_interface=".interfaces.IFacetedHeritorSubtyper"
     />
 
