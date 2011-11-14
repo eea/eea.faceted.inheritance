@@ -1,0 +1,80 @@
+EEA Faceted Inheritance
+=======================
+An extension to be used within eea.facetednavigation in order to allow objects
+to inherit faceted configuration from another faceted navigable object. This way
+one can define a global faceted navigable folder and reuse this configuration
+for multiple heritors.
+
+Imports
+-------
+
+    >>> from p4a.subtyper.interfaces import ISubtyper
+    >>> from zope.component import getUtility
+    >>> from zope.component import queryMultiAdapter
+    >>> from eea.facetednavigation.interfaces import ICriteria
+    >>> from eea.faceted.inheritance.interfaces import IHeritorAccessor
+
+Set up
+------
+
+    >>> self.loginAsPortalOwner()
+
+Create a faceted navigable folder
+---------------------------------
+
+    >>> fid = portal.invokeFactory('Folder', 'ancestor')
+    >>> ancestor = portal._getOb(fid)
+    >>> subtyper = getUtility(ISubtyper)
+    >>> subtyper.change_type(ancestor, 'eea.facetednavigation.FolderFacetedNavigable')
+
+  Cleanup default widgets
+
+    >>> cids = ICriteria(ancestor).keys()
+    >>> for cid in cids:
+    ...     ICriteria(ancestor).delete(cid)
+    >>> ICriteria(ancestor).keys()
+    []
+
+  Add a widget
+
+    >>> _ = ICriteria(ancestor).add('text', 'left')
+
+Create a faceted heritor folder
+-------------------------------
+
+    >>> fid = portal.invokeFactory('Folder', 'heritor')
+    >>> heritor = portal._getOb(fid)
+    >>> subtyper.change_type(heritor, 'eea.faceted.inheritance.FolderFacetedHeritor')
+
+  Connect heritor with ancestor
+
+    >>> request = heritor.REQUEST
+    >>> IHeritorAccessor(heritor).ancestor = '/plone/ancestor'
+    >>> IHeritorAccessor(heritor).ancestor
+    '/plone/ancestor'
+
+  Now faceted configuration from ancestor is available also for heritor. Let's
+  check that:
+
+    >>> ICriteria(ancestor).keys()
+    ['c0']
+
+    >>> ICriteria(heritor).keys()
+    ['c0']
+
+  If something is changes on ancestor, changes will be visible on heritor, also:
+
+    >>> _ = ICriteria(ancestor).add('select', 'right')
+    >>> ICriteria(ancestor).keys()
+    ['c0', 'c1']
+
+    >>> ICriteria(heritor).keys()
+    ['c0', 'c1']
+
+    >>> criterion = ICriteria(ancestor).get('c0')
+    >>> criterion
+    <eea.facetednavigation.widgets.storage.Criterion object at ...>
+
+    >>> h_criterion = ICriteria(heritor).get('c0')
+    >>> h_criterion is criterion
+    True
