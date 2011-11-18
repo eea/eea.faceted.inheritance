@@ -4,6 +4,9 @@ Changelog
 [Alin Voinea - alin.voinea@eaudeweb.ro]
 [Antonio De Marinis - Antonio.DeMarinis@eea.europa.eu]
 
+4.1-dev - (unreleased)
+----------------------
+
 4.0 - (2011-11-18)
 ------------------
 * Bug fix: Use 'eea.faceted.configure' permission for all faceted related views
