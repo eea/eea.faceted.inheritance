@@ -33,7 +33,7 @@
           value string:;
           checked python:(not current_ancestor) and 'checked' or None;
           id string:empty-ancestor" />
-        <label for="empty-ancestor">(NOT SET)</label>
+        <label for="empty-ancestor" i18n:translate="">(NOT SET)</label>
       </li>
       <li tal:repeat="ancestor python:view.ancestors">
         <tal:item define="
@@ -65,7 +65,11 @@
   </div>
 
   <div class="formControls">
-    <input class="context" type="submit" value="Save" name="form.button.save"/>
+    <input class="context" 
+           type="submit" 
+           value="Save" 
+           i18n:attributes="value" 
+           name="form.button.save"/>
   </div>
 
 </form>
