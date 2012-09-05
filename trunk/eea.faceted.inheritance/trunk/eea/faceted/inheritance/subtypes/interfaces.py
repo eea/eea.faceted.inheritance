@@ -1,8 +1,7 @@
 """ Subtypes interfaces
 """
 from zope import schema
-from zope.interface import Interface, alsoProvides
-from zope.app.content.interfaces import IContentType
+from zope.interface import Interface
 from eea.facetednavigation.interfaces import IFacetedNavigable
 from eea.facetednavigation.subtypes.interfaces import IFacetedSubtyper
 
@@ -23,5 +22,3 @@ class IFacetedHeritorSubtyper(IFacetedSubtyper):
     """
     can_enable_heritor = schema.Bool(u'Can enable faceted inheritance',
                                      readonly=True)
-
-alsoProvides(IFacetedHeritor, IContentType)

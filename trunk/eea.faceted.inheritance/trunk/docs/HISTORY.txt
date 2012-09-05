@@ -3,10 +3,12 @@ Changelog
 
 4.4-dev - (unreleased)
 ----------------------
+* Bug fix: Cleanup zope.app.content.interfaces.IContentType dependency
+  [voineali]
 
 4.3 - (2012-07-13)
 ------------------
-* Bug Fix: Fixed i18n missing tags in eea.faceted.inheritance 
+* Bug Fix: Fixed i18n missing tags in eea.faceted.inheritance
   [prospchr refs #5162]
 
 4.2 - (2012-06-12)
