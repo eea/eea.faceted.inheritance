@@ -24,7 +24,7 @@
       Inherit faceted navigation configuration from:
     </label>
     <div id="ancestor_help" class="formHelp" i18n:translate="">
-      Select an item bellow to inherit faceted navigation configuration
+      Select an item below to inherit faceted navigation configuration
     </div>
 
     <ul style="list-style: none" id="ancestors">
