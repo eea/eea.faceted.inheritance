@@ -3,6 +3,8 @@ Changelog
 
 4.5-dev - (unreleased)
 ----------------------
+* Bug fix: 'Below' is now spelled properly.
+  [prospchr refs #13770]
 
 4.4 - (2012-11-22)
 ------------------
