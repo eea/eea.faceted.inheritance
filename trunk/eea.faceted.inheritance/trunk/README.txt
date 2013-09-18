@@ -1,5 +1,6 @@
-Introduction
-============
+=======================
+EEA Faceted Inheritance
+=======================
 An extension to be used within eea.facetednavigation in order to allow objects
 to inherit faceted configuration from another faceted navigable object. This way
 one can define a global faceted navigable folder and reuse this configuration
