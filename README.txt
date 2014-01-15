@@ -32,7 +32,9 @@ Links
 =====
 
    1. EEA Faceted Navigation wiki page:
-      https://svn.eionet.europa.eu/projects/Zope/wiki/FacetedNavigation
+      http://taskman.eionet.europa.eu/projects/zope/wiki/FacetedNavigation
+   2. Featured EEA products (Zope/Plone add-ons):
+      http://eea.github.io
 
 Funding
 =======
