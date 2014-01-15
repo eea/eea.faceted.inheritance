@@ -3,6 +3,8 @@ Changelog
 
 4.6-dev - (unreleased)
 ----------------------
+* Bug fix: Updated old URLs pointing Trac
+  [ghicaale refs #18003]
 
 4.5 - (2013-03-15)
 ------------------
