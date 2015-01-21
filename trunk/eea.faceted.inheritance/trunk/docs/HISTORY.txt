@@ -1,6 +1,9 @@
 Changelog
 =========
 
+4.8-dev - (unreleased)
+----------------------
+
 4.7 - (2015-01-21)
 ------------------
 * Bug fix: Fixed url within setup.py in order to work with newer setuptools versions
