@@ -18,7 +18,7 @@ def test_suite():
             FunctionalDocFileSuite('README.txt',
                   optionflags=OPTIONFLAGS,
                   package='eea.faceted.inheritance',
-                  test_class=FacetedInheritanceFunctionalTestCase) ,
+                  test_class=FacetedInheritanceFunctionalTestCase),
             FunctionalDocFileSuite('docs/browser.txt',
                   optionflags=OPTIONFLAGS,
                   package='eea.faceted.inheritance',
