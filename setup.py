@@ -1,7 +1,7 @@
 """ EEA Faceted Inheritance Installer
 """
-from setuptools import setup, find_packages
 import os
+from setuptools import setup, find_packages
 from os.path import join
 
 NAME = 'eea.faceted.inheritance'
