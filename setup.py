@@ -1,8 +1,8 @@
 """ EEA Faceted Inheritance Installer
 """
 import os
-from setuptools import setup, find_packages
 from os.path import join
+from setuptools import setup, find_packages
 
 NAME = 'eea.faceted.inheritance'
 PATH = NAME.split('.') + ['version.txt']
