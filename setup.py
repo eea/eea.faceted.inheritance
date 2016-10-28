@@ -13,7 +13,7 @@ setup(name=NAME,
       description=("EEA Faceted Navigation extension that allow a faceted "
                    "navigable object to inherit faceted configuration from "
                    "another faceted navigable object."),
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       classifiers=[
         "Programming Language :: Python",
