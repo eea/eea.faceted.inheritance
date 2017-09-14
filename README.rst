@@ -1,6 +1,9 @@
 =======================
 EEA Faceted Inheritance
 =======================
+.. image:: http://ci.eionet.europa.eu/job/eea/job/eea.faceted.inheritance/job/master/badge/icon
+  :target: http://ci.eionet.europa.eu/job/eea/job/eea.faceted.inheritance/job/master/display/redirect
+
 An extension to be used within eea.facetednavigation in order to allow objects
 to inherit faceted configuration from another faceted navigable object. This way
 one can define a global faceted navigable folder and reuse this configuration
