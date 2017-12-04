@@ -3,6 +3,8 @@ Changelog
 
 5.3.dev0 - (unreleased)
 -----------------------
+* Feature: Make it work with eea.facetednavigation 10.0+
+  [avoinea refs #89955]
 
 5.2 - (2017-11-07)
 ------------------
