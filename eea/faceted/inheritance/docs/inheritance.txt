@@ -60,19 +60,19 @@ Create a faceted heritor folder
   check that:
 
     >>> ICriteria(ancestor).keys()
-    ['c0']
+    [u'c0']
 
     >>> ICriteria(heritor).keys()
-    ['c0']
+    [u'c0']
 
   If something is changes on ancestor, changes will be visible on heritor, also:
 
     >>> _ = ICriteria(ancestor).add('select', 'right')
     >>> ICriteria(ancestor).keys()
-    ['c0', 'c1']
+    [u'c0', u'c1']
 
     >>> ICriteria(heritor).keys()
-    ['c0', 'c1']
+    [u'c0', u'c1']
 
     >>> criterion = ICriteria(ancestor).get('c0')
     >>> criterion
