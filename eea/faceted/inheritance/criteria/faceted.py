@@ -96,6 +96,11 @@ class Criteria(object):
         editing widgets is forbidden
         """
         return
+
+    def upgrade(self, cid):
+        """ Nothing to upgrade
+        """
+        return
     #
     # Position
     #
