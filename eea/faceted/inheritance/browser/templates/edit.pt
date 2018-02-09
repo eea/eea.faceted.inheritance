@@ -9,7 +9,9 @@
   <script type="text/javascript"
     tal:content="string:jQuery(document).ready(FacetedHeritor.Load);"></script>
   <script type="text/javascript"
-    tal:content="string:jQuery(window).unload(FacetedHeritor.Unload);"></script>
+    tal:content="string:jQuery(document).ready(function() {
+                jQuery(window).unload(FacetedHeritor.Unload);
+          });"></script>
 </metal:jsslot>
 
 <body>
