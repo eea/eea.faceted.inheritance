@@ -1,8 +1,12 @@
 =======================
 EEA Faceted Inheritance
 =======================
-.. image:: http://ci.eionet.europa.eu/job/eea/job/eea.faceted.inheritance/job/master/badge/icon
-  :target: http://ci.eionet.europa.eu/job/eea/job/eea.faceted.inheritance/job/master/display/redirect
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.faceted.inheritance/develop
+  :target: https://ci.eionet.europa.eu/job/eea/job/eea.faceted.inheritance/job/develop/display/redirect
+  :alt: Develop
+.. image:: https://ci.eionet.europa.eu/buildStatus/icon?job=eea/eea.faceted.inheritance/master
+  :target: https://ci.eionet.europa.eu/job/eea/job/eea.faceted.inheritance/job/master/display/redirect
+  :alt: Master
 
 An extension to be used within eea.facetednavigation in order to allow objects
 to inherit faceted configuration from another faceted navigable object. This way
