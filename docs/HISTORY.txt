@@ -1,6 +1,11 @@
 Changelog
 =========
 
+5.5-dev0 - (unreleased)
+---------------------
+* Change: updated URLs pointing to eea.europa.eu with https://
+  [alecghica refs #95849]
+
 5.4 - (2018-03-14)
 ------------------
 * Change: reference js code within jQuery dom ready

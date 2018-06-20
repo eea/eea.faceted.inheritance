@@ -39,13 +39,13 @@ Links
 =====
 
 1. EEA Faceted Navigation wiki page:
-   http://taskman.eionet.europa.eu/projects/zope/wiki/FacetedNavigation
+   https://taskman.eionet.europa.eu/projects/zope/wiki/FacetedNavigation
 2. Featured EEA products (Zope/Plone add-ons):
-   http://eea.github.io
+   https://eea.github.io
 
 Funding
 =======
 
 EEA_ - European Enviroment Agency (EU)
 
-.. _EEA: http://www.eea.europa.eu/
+.. _EEA: https://www.eea.europa.eu/
