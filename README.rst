@@ -16,8 +16,8 @@ for multiple heritors.
 Source code
 ===========
 
-Latest source code in EEA svn:
-   https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.faceted.inheritance/
+Latest source code in EEA GitHub:
+   https://github.com/eea/eea.faceted.inheritance
 
 Copyright and license
 =====================
