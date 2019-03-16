@@ -1,27 +1,51 @@
 """ Base test cases
 """
-from Products.Five import zcml
-from Products.Five import fiveconfigure
-from Products.PloneTestCase import PloneTestCase as ptc
-from Products.PloneTestCase.layer import onsetup
+from Products.CMFPlone import setuphandlers
+from plone.testing import z2
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import applyProfile
+from plone.app.testing import FunctionalTesting
+from plone.app.testing import setRoles
 
-@onsetup
-def setup_eea_faceted_inheritance():
-    """Set up the additional products.
-
-    The @onsetup decorator causes the execution of this body to be deferred
-    until the setup of the Plone site testing layer.
+class EEAFixture(PloneSandboxLayer):
+    """ EEA Testing Policy
     """
-    fiveconfigure.debug_mode = True
+    def setUpZope(self, app, configurationContext):
+        """ Setup Zope
+        """
+        import eea.faceted.inheritance
+        self.loadZCML(package=eea.faceted.inheritance)
+        z2.installProduct(app, 'eea.faceted.inheritance')
 
-    import eea.faceted.inheritance
-    zcml.load_config('configure.zcml', eea.faceted.inheritance)
-    zcml.load_config('configure.zcml', eea.faceted.inheritance.subtypes)
-    fiveconfigure.debug_mode = False
+    def setUpPloneSite(self, portal):
+        """ Setup Plone
+        """
+        applyProfile(portal, 'eea.faceted.inheritance:default')
 
-setup_eea_faceted_inheritance()
-ptc.setupPloneSite(extension_profiles=('eea.faceted.inheritance:default',))
+        # Default workflow
+        wftool = portal['portal_workflow']
+        wftool.setDefaultChain('simple_publication_workflow')
 
-class FacetedInheritanceFunctionalTestCase(ptc.FunctionalTestCase):
-    """Base class for functional integration tests for eea.faceted.inheritance
-    """
+        # Login as manager
+        setRoles(portal, TEST_USER_ID, ['Manager'])
+
+        # Add default Plone content
+        try:
+            applyProfile(portal, 'plone.app.contenttypes:plone-content')
+        except KeyError:
+            # BBB Plone 4
+            setuphandlers.setupPortalContent(portal)
+
+        # Create testing environment
+        portal.invokeFactory("Folder", "sandbox", title="Sandbox")
+
+
+    def tearDownZope(self, app):
+        """ Uninstall Zope
+        """
+        z2.uninstallProduct(app, 'eea.faceted.inheritance')
+
+EEAFIXTURE = EEAFixture()
+FUNCTIONAL_TESTING = FunctionalTesting(bases=(EEAFIXTURE,),
+                                       name='EEAFacetedInheritance:Functional')

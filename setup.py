@@ -42,6 +42,11 @@ setup(name=NAME,
           # -*- Extra requirements: -*-
           'eea.facetednavigation',
       ],
+      extras_require={
+          'test': [
+              'plone.app.testing',
+          ],
+      },
       entry_points="""
       [z3c.autoinclude.plugin]
       target = plone

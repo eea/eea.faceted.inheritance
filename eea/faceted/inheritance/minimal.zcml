@@ -4,6 +4,7 @@
   i18n_domain="eea">
 
   <!-- Dependencies -->
+  <include file="meta.zcml" />
   <include package="eea.facetednavigation" file="minimal.zcml" />
 
   <configure zcml:condition="installed plone.app.dexterity">

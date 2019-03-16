@@ -1,30 +1,41 @@
 """ Doc tests
 """
-import unittest
 import doctest
-from Testing.ZopeTestCase import FunctionalDocFileSuite
-from eea.faceted.inheritance.tests.base import (
-    FacetedInheritanceFunctionalTestCase,
-)
+import unittest
+from eea.faceted.inheritance.tests.base import FUNCTIONAL_TESTING
+from plone.testing import layered
 
 OPTIONFLAGS = (doctest.REPORT_ONLY_FIRST_FAILURE |
                doctest.ELLIPSIS |
                doctest.NORMALIZE_WHITESPACE)
 
+
 def test_suite():
     """ Suite
     """
-    return unittest.TestSuite((
-            FunctionalDocFileSuite('README.txt',
-                  optionflags=OPTIONFLAGS,
-                  package='eea.faceted.inheritance',
-                  test_class=FacetedInheritanceFunctionalTestCase),
-            FunctionalDocFileSuite('docs/browser.txt',
-                  optionflags=OPTIONFLAGS,
-                  package='eea.faceted.inheritance',
-                  test_class=FacetedInheritanceFunctionalTestCase),
-            FunctionalDocFileSuite('docs/inheritance.txt',
-                  optionflags=OPTIONFLAGS,
-                  package='eea.faceted.inheritance',
-                  test_class=FacetedInheritanceFunctionalTestCase),
-    ))
+    suite = unittest.TestSuite()
+    suite.addTests([
+        layered(
+            doctest.DocFileSuite(
+                'README.txt',
+                optionflags=OPTIONFLAGS,
+                package='eea.faceted.inheritance'),
+            layer=FUNCTIONAL_TESTING),
+        layered(
+            doctest.DocFileSuite(
+                'docs/browser.txt',
+                optionflags=OPTIONFLAGS,
+                package='eea.faceted.inheritance'),
+            layer=FUNCTIONAL_TESTING),
+        layered(
+            doctest.DocFileSuite(
+                'docs/inheritance.txt',
+                optionflags=OPTIONFLAGS,
+                package='eea.faceted.inheritance'),
+            layer=FUNCTIONAL_TESTING),
+      ])
+    return suite
+
+
+if __name__ == '__main__':
+    unittest.main(defaultTest='test_suite')
