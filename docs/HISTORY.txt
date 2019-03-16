@@ -1,7 +1,7 @@
 Changelog
 =========
 
-6.0-dev0 - (2019-03-16)
+6.0 - (2019-03-16)
 -----------------------
 * Feature: Plone 5 support
   [avoinea]
