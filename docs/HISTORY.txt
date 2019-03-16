@@ -5,6 +5,8 @@ Changelog
 -----------------------
 * Feature: Plone 5 support
   [avoinea]
+* Change: Disabling faceted advanced settings by default.
+  [avoinea]
 
 5.5 - (2019-01-28)
 ---------------------

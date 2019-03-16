@@ -4,13 +4,17 @@ from zope.event import notify
 from zope.interface import implements
 from zope.interface import alsoProvides
 
-from eea.faceted.inheritance.subtypes.interfaces import IFacetedHeritorSubtyper
+from eea.facetednavigation.interfaces import IDisableSmartFacets
+from eea.facetednavigation.interfaces import IHidePloneLeftColumn
+from eea.facetednavigation.interfaces import IHidePloneRightColumn
 from eea.facetednavigation.subtypes.subtyper import FacetedPublicSubtyper
 from eea.facetednavigation.events import FacetedWillBeEnabledEvent
 from eea.facetednavigation.events import FacetedEnabledEvent
 
+from eea.faceted.inheritance.subtypes.interfaces import IFacetedHeritorSubtyper
 from eea.faceted.inheritance.interfaces import IPossibleFacetedHeritor
 from eea.faceted.inheritance.interfaces import IFacetedHeritor
+
 
 class FacetedHeritorPublicSubtyper(FacetedPublicSubtyper):
     """ Public support for subtyping objects
@@ -28,6 +32,7 @@ class FacetedHeritorPublicSubtyper(FacetedPublicSubtyper):
             return False
         return True
 
+
 class FacetedHeritorSubtyper(FacetedHeritorPublicSubtyper):
     """ Support for subtyping objects
     """
@@ -39,5 +44,11 @@ class FacetedHeritorSubtyper(FacetedHeritorPublicSubtyper):
 
         notify(FacetedWillBeEnabledEvent(self.context))
         alsoProvides(self.context, IFacetedHeritor)
+        if not IDisableSmartFacets.providedBy(self.context):
+            alsoProvides(self.context, IDisableSmartFacets)
+        if not IHidePloneLeftColumn.providedBy(self.context):
+            alsoProvides(self.context, IHidePloneLeftColumn)
+        if not IHidePloneRightColumn.providedBy(self.context):
+            alsoProvides(self.context, IHidePloneRightColumn)
         notify(FacetedEnabledEvent(self.context))
         self._redirect('Faceted inheritance enabled')
