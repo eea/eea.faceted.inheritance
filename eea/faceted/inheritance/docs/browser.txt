@@ -7,21 +7,29 @@ Set up
   Imports
 
     >>> from zope.component import getMultiAdapter
-    >>> self.loginAsPortalOwner()
+    >>> from plone.testing.z2 import Browser
+    >>> from plone.app.testing import TEST_USER_NAME, TEST_USER_PASSWORD
+
+  Sandbox
+
+    >>> portal = layer["portal"]
+    >>> request = layer['request']
+    >>> sandbox = portal['sandbox']
+    >>> portal.error_log._ignored_exceptions = ()
+    >>> app = layer["app"]
 
   Add ancestor
 
-    >>> fid = portal.invokeFactory('Folder', 'ancestor')
-    >>> ancestor = portal._getOb(fid)
-    >>> request = ancestor.REQUEST
+    >>> fid = sandbox.invokeFactory('Folder', 'ancestor')
+    >>> ancestor = sandbox._getOb(fid)
     >>> subtyper = getMultiAdapter((ancestor, request), name=u'faceted_subtyper')
     >>> subtyper.enable()
     >>> ancestor.reindexObject()
 
   Add heritor
 
-    >>> fid = portal.invokeFactory('Folder', 'heritor')
-    >>> heritor = portal._getOb(fid)
+    >>> fid = sandbox.invokeFactory('Folder', 'heritor')
+    >>> heritor = sandbox._getOb(fid)
     >>> hertyper = getMultiAdapter((heritor, heritor.REQUEST), name=u'facetedheritor_subtyper')
     >>> hertyper.can_enable_heritor
     True
@@ -29,17 +37,13 @@ Set up
     >>> hertyper.enable()
     >>> heritor.reindexObject()
 
-  Login
+  Initialize browser
 
-    >>> self.logout()
-    >>> from Products.Five.testbrowser import Browser
-    >>> from Products.PloneTestCase import PloneTestCase
-    >>> browser = Browser()
+    >>> browser = Browser(app)
     >>> browser.handleErrors = False
-    >>> self.portal.error_log._ignored_exceptions = ()
-    >>> browser.addHeader('Authorization',
-    ...                   'Basic %s:%s' % (PloneTestCase.portal_owner,
-    ...                                    PloneTestCase.default_password))
+    >>> browser.addHeader('Authorization', 'Basic %s:%s' % (TEST_USER_NAME, TEST_USER_PASSWORD))
+    >>> import transaction
+    >>> transaction.commit()
 
   Default heritor view
 
@@ -51,15 +55,15 @@ Set up
     >>> browser.open(heritor_url + '/@@configure_faceted.html')
     >>> control = browser.getControl(name='ancestor')
     >>> control.options
-    ['', '/plone/ancestor']
+    ['', '/plone/sandbox/ancestor']
 
-    >>> control.value = ['/plone/ancestor']
+    >>> control.value = ['/plone/sandbox/ancestor']
     >>> browser.getControl('Save').click()
     >>> 'Changes saved' in browser.contents
     True
 
     >>> browser.getControl(name='ancestor').value
-    ['/plone/ancestor']
+    ['/plone/sandbox/ancestor']
 
   Check results
 

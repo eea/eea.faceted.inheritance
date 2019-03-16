@@ -13,11 +13,44 @@ to inherit faceted configuration from another faceted navigable object. This way
 one can define a global faceted navigable folder and reuse this configuration
 for multiple heritors.
 
+
+Install
+=======
+
+* Add **eea.faceted.inheritance** to your **eggs** section in your buildout and
+  re-run buildout::
+
+    [buildout]
+    eggs +=
+      eea.faceted.inheritance
+
+* You can download a sample buildout from:
+
+  - https://github.com/eea/eea.faceted.inheritance/tree/master/buildouts/plone4
+  - https://github.com/eea/eea.faceted.inheritance/tree/master/buildouts/plone5
+
+* Or via docker::
+
+    $ docker run --rm -p 8080:8080 -e ADDONS="eea.faceted.inheritance" plone
+
+* Install **EEA Faceted Inheritance** within **Site Setup > Add-ons**
+
+
+Getting started
+===============
+
+* Go to your working space and add a **Folder** and within **Actions** menu
+  click on **Enable Faceted Inheritance**.
+* See more on `EEA Faceted Navigation`_
+
+
 Source code
 ===========
 
 Latest source code in EEA GitHub:
-   https://github.com/eea/eea.faceted.inheritance
+
+* https://github.com/eea/eea.faceted.inheritance
+
 
 Copyright and license
 =====================
@@ -35,17 +68,10 @@ Contributor(s): Alin Voinea (Eau de Web),
 
 More details under docs/License.txt
 
-Links
-=====
-
-1. EEA Faceted Navigation wiki page:
-   https://taskman.eionet.europa.eu/projects/zope/wiki/FacetedNavigation
-2. Featured EEA products (Zope/Plone add-ons):
-   https://eea.github.io
-
 Funding
 =======
 
 EEA_ - European Enviroment Agency (EU)
 
 .. _EEA: https://www.eea.europa.eu/
+.. _`EEA Faceted Navigation`: https://github.com/eea/eea.facetednavigation

@@ -19,10 +19,9 @@ setup(name=NAME,
       classifiers=[
           "Framework :: Zope2",
           "Framework :: Plone",
-          "Framework :: Plone :: 4.0",
-          "Framework :: Plone :: 4.1",
-          "Framework :: Plone :: 4.2",
           "Framework :: Plone :: 4.3",
+          "Framework :: Plone :: 5.0",
+          "Framework :: Plone :: 5.1",
           "Programming Language :: Zope",
           "Programming Language :: Python",
           "Programming Language :: Python :: 2.7",
@@ -43,6 +42,11 @@ setup(name=NAME,
           # -*- Extra requirements: -*-
           'eea.facetednavigation',
       ],
+      extras_require={
+          'test': [
+              'plone.app.testing',
+          ],
+      },
       entry_points="""
       [z3c.autoinclude.plugin]
       target = plone

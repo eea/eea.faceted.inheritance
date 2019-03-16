@@ -15,14 +15,15 @@ Imports
 Set up
 ------
 
-    >>> self.loginAsPortalOwner()
+    >>> portal = layer["portal"]
+    >>> request = layer['request']
+    >>> sandbox = portal['sandbox']
 
 Create a faceted navigable folder
 ---------------------------------
 
-    >>> fid = portal.invokeFactory('Folder', 'ancestor')
-    >>> ancestor = portal._getOb(fid)
-    >>> request = ancestor.REQUEST
+    >>> fid = sandbox.invokeFactory('Folder', 'ancestor')
+    >>> ancestor = sandbox._getOb(fid)
     >>> subtyper = getMultiAdapter((ancestor, request), name=u'faceted_subtyper')
     >>> subtyper.enable()
 
@@ -41,9 +42,8 @@ Create a faceted navigable folder
 Create a faceted heritor folder
 -------------------------------
 
-    >>> fid = portal.invokeFactory('Folder', 'heritor')
-    >>> heritor = portal._getOb(fid)
-    >>> request = heritor.REQUEST
+    >>> fid = sandbox.invokeFactory('Folder', 'heritor')
+    >>> heritor = sandbox._getOb(fid)
     >>> hertyper = getMultiAdapter((heritor, request), name=u'facetedheritor_subtyper')
     >>> hertyper.can_enable_heritor
     True
@@ -52,9 +52,9 @@ Create a faceted heritor folder
 
   Connect heritor with ancestor
 
-    >>> IHeritorAccessor(heritor).ancestor = '/plone/ancestor'
+    >>> IHeritorAccessor(heritor).ancestor = '/plone/sandbox/ancestor'
     >>> IHeritorAccessor(heritor).ancestor
-    '/plone/ancestor'
+    '/plone/sandbox/ancestor'
 
   Now faceted configuration from ancestor is available also for heritor. Let's
   check that:

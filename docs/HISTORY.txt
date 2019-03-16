@@ -1,6 +1,13 @@
 Changelog
 =========
 
+6.0 - (2019-03-16)
+-----------------------
+* Feature: Plone 5 support
+  [avoinea]
+* Change: Disabling faceted advanced settings by default.
+  [avoinea]
+
 5.5 - (2019-01-28)
 ---------------------
 * Jenkins: Add sonarqube step
@@ -122,4 +129,3 @@ Changelog
 0.1 (2010-01-18)
 ----------------
 * Initial release
-
