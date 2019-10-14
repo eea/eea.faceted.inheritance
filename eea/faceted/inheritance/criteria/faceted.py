@@ -1,6 +1,6 @@
 """ Faceted criteria
 """
-from zope.interface import implements
+from zope.interface import implements, implementer
 from zope.component import queryAdapter, getUtility
 
 from eea.faceted.inheritance.criteria.interfaces import ICriteria
@@ -10,10 +10,11 @@ from eea.facetednavigation.interfaces import IWidgetsInfo
 
 from Products.CMFCore.utils import getToolByName
 
+@implementer(ICriteria)
 class Criteria(object):
     """ Overrides default facetednavigation functionality
     """
-    implements(ICriteria)
+    # implements(ICriteria)
 
     def _ancestor(self, context):
         """ Get ancestor
