@@ -1,7 +1,7 @@
 """ Subtyping support
 """
 from zope.event import notify
-from zope.interface import implements, implementer
+from zope.interface import implementer
 from zope.interface import alsoProvides
 
 from eea.facetednavigation.interfaces import IDisableSmartFacets
@@ -20,7 +20,6 @@ from eea.faceted.inheritance.interfaces import IFacetedHeritor
 class FacetedHeritorPublicSubtyper(FacetedPublicSubtyper):
     """ Public support for subtyping objects
     """
-    # implements(IFacetedHeritorSubtyper)
 
     @property
     def can_enable_heritor(self):
