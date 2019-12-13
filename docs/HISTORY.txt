@@ -3,10 +3,8 @@ Changelog
 
 6.1 - (2019-12-13)
 -----------------------
-* Feature: added Python3 compatibility.
-  [alecghica refs #110155]
-* Feature: added Python3 compatibility
-  [iulianpetchesi refs #110155]
+* Feature: Python3 support
+  [alecghica, iulianpetchesi, avoinea refs #110155]
 
 6.0 - (2019-03-16)
 -----------------------
