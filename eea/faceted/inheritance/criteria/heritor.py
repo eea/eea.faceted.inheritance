@@ -1,14 +1,14 @@
 """ Heritor low level API
 """
 from zope.annotation.interfaces import IAnnotations
-from zope.interface import implements
+from zope.interface import implementer
 from eea.faceted.inheritance.config import ANNO_ANCESTOR
 from eea.faceted.inheritance.criteria.interfaces import IHeritorAccessor
 
+@implementer(IHeritorAccessor)
 class HeritorAccessor(object):
     """ Criteria handler
     """
-    implements(IHeritorAccessor)
 
     def __init__(self, context):
         self.context = context
