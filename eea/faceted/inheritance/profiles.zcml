@@ -15,6 +15,16 @@
     for="Products.CMFPlone.interfaces.IPloneSiteRoot"
     />
 
+  <genericsetup:registerProfile
+    name="uninstall"
+    title="Uninstall: EEA Faceted Inheritance"
+    directory="profiles/uninstall"
+    description="Uninstall Profile for EEA Faceted Inheritance"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+    post_handler=".setuphandlers.uninstall_faceted"
+    />
+
   <genericsetup:importStep
     name="eea.faceted.inheritance.various"
     title="EEA Faceted Inheritance setup"

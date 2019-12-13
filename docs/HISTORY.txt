@@ -1,6 +1,11 @@
 Changelog
 =========
 
+6.1 - (2019-12-13)
+-----------------------
+* Feature: Python3 support
+  [alecghica, iulianpetchesi, avoinea refs #110155]
+
 6.0 - (2019-03-16)
 -----------------------
 * Feature: Plone 5 support
@@ -9,7 +14,7 @@ Changelog
   [avoinea]
 
 5.5 - (2019-01-28)
----------------------
+--------------------------
 * Jenkins: Add sonarqube step
   [avoinea refs #101552]
 * Change: updated URLs pointing to eea.europa.eu with https://
