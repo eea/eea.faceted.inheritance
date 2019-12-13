@@ -1,7 +1,7 @@
 Changelog
 =========
 
-6.1-dev0 - (unreleased)
+6.1 - (2019-12-13)
 -----------------------
 * Feature: added Python3 compatibility.
   [alecghica refs #110155]
