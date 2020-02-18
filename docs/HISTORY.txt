@@ -1,7 +1,7 @@
 Changelog
 =========
 
-6.2-dev0 - (unreleased)
+6.2 - (2020-02-18)
 ---------------------------
 * Change: Give name to Dexterity behavior: eea.faceted.inheritance
   [avoinea]
