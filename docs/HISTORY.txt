@@ -1,6 +1,11 @@
 Changelog
 =========
 
+6.2 - (2020-02-18)
+---------------------------
+* Change: Give name to Dexterity behavior: eea.faceted.inheritance
+  [avoinea]
+
 6.1 - (2019-12-13)
 -----------------------
 * Feature: Python3 support
